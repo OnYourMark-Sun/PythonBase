@@ -54,3 +54,35 @@ aa.pri()'''
 
 """使用枚举类型"""
 #https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143191235886950998592cd3e426e91687cdae696e64b000
+class enuming():
+    from enum import Enum
+    Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+    for name in Month:
+        print(name)
+
+    from enum import Enum, unique
+    @unique  # 装饰器帮我们检查没有重复值   进行自定义枚举
+    class Weekday(Enum):
+        sun = 0
+        mon = 1
+        tue = 2
+        wed = 3
+        thu = 4
+        fri = 5
+        sat = 6
+
+    day = Weekday.mon.value  # 输出当前的值
+    print(day)  # 1
+    print(day == Weekday.tue)  # Flase  输出的是True 或者 Flase
+
+#enuming()
+
+
+"""使用元类"""
+class Hello(object):
+    def hello(self,name='worde'):
+        print(name)
+
+# h = Hello()
+# print(type(Hello))
+# print(type(h))
